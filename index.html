@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Time</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <h1 class="hour">My Time</h1>
+            <div class="settings-icon" onclick="toggleSettings()"><i class="fa fa-cog fa-2x"></i></div>
+        </div>
+    </nav>
+    <div class="time">
+        <h2 class="hour">04</h2>
+        <h2>:</h2>
+        <h2 class="hour">30</h2>
+        <h2>:</h2>
+        <h2 class="seconds">45</h2>
+        <div class="date">
+
+        </div>
+    </div>
+    <div id="settings-popup" class="settings-popup">
+        <h2>Settings</h2>
+        <label for="timezone">Time Zone:</label>
+        <select id="timezone">
+            <!-- Time zone options -->
+        </select>
+        <label for="bg-image">Background Image URL:</label>
+        <input type="file" id="bg-image" placeholder="Choose File">
+        <label for="bg-color">Background Color:</label>
+        <input type="color" id="bg-color">
+        <label for="text-color">Text Color:</label>
+        <input type="color" id="text-color">
+        <label for="font-size">Font Size:</label>
+        <input type="number" id="font-size" value="16">
+        <label for="font-type">Font Type:</label>
+        <select id="font-type">
+            <option value="Arial" style="font-family: Arial;">Arial</option>
+            <option value="Verdana" style="font-family: Verdana;">Verdana</option>
+            <option value="Times New Roman" style="font-family: 'Times New Roman';">Times New Roman</option>
+            <option value="Georgia" style="font-family: Georgia;">Georgia</option>
+            <option value="Courier New" style="font-family: 'Courier New';">Courier New</option>
+            <option value="Lucida Console" style="font-family: 'Lucida Console';">Lucida Console</option>
+        </select>
+        <label for="show-seconds">Show Seconds:</label>
+        <input type="checkbox" id="show-seconds" checked>
+        <label for="hour-format">12 or 24 Hour Format:</label>
+        <select id="hour-format">
+            <option value="12">12 Hour</option>
+            <option value="24">24 Hour</option>
+        </select>
+        <button onclick="applySettings()">Apply</button>
+        <button onclick="toggleSettings()">Close</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

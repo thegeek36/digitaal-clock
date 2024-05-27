@@ -1,5 +1,3 @@
-/* style.css */
-
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -18,30 +16,83 @@ nav {
     position: fixed;
     top: 0;
 }
+.nav-container .icon {
+    display: flex;
+    align-items: center;
+}
+
+.settings-icon,
+.music-icon {
+    cursor: pointer;
+    margin-left: 20px; /* Adjust the gap between icons as needed */
+}
+label{
+    border-radius: 3px;
+}
+button{
+    border-radius: 3px;
+    padding-bottom: 3px;
+    width: 180px;
+    height: 40px;
+    background-color: burlywood;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    font-size: 13px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
 
 .nav-container {
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
     align-items: center;
     padding: 0 20px;
 }
 
 .settings-icon {
-    csor: pointer;
-    urfont-size: 24px;
+    cursor: pointer;
+    font-size: 24px;
 }
 
 .time {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 50px;
-    margin-top: 60px;
+    font-size: 48px;
+    margin-top: 50px;
+}
+
+.time h2 {
+    margin: 0 5px;
+}
+
+.blink {
+    animation: blink 1s step-start infinite;
+}
+
+/* Ensuring @keyframes is defined outside any other rule */
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
+
+@keyframes scroll-up {
+    0% {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.scroll-up {
+    display: inline-block;
+    animation: scroll-up 0.3s ease-in-out;
 }
 
 .settings-popup {
-    border-radius: 5px;
     display: none;
     position: fixed;
     top: 50%;
@@ -51,9 +102,12 @@ nav {
     padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     z-index: 1000;
-    width: 500px;
-    max-height: 90vh; 
-    overflow: auto; 
+    width: 600px;
+    max-height: 70vh; /* Adjust this value as needed */
+    overflow: auto; /* Make the popup scrollable */
+}
+#show-seconds{
+    align-items: last baseline;
 }
 
 .popup-header {

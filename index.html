@@ -11,33 +11,47 @@
     <nav>
         <div class="nav-container">
             <h1 class="hour">My Time</h1>
-            <div class="settings-icon" onclick="toggleSettings()"><i class="fa fa-cog fa-2x"></i></div>
+            <div class="icon">  
+            <div class="settings-icon" onclick="toggleSettings()"><i class="fa fa-cog"></i></div>
+            <div class="music-icon" onclick="toggleMusic()">
+                <i class="fa fa-music"></i>
+            </div>
+        </div>
         </div>
     </nav>
     <div class="time">
         <h2 class="hour">04</h2>
-        <h2>:</h2>
-        <h2 class="hour">30</h2>
-        <h2>:</h2>
+        <h2 class="blink">:</h2>
+        <h2 class="minute">30</h2>
+        <h2 class="blink">:</h2>
         <h2 class="seconds">45</h2>
         <div class="date">
-
         </div>
     </div>
+    <audio id="calming-music" loop>
+        <source src="relax.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    
     <div id="settings-popup" class="settings-popup">
         <h2>Settings</h2>
-        <label for="timezone">Time Zone:</label>
+        <label for="timezone" class="label">Time Zone:</label>
         <select id="timezone">
-            <!-- Time zone options -->
+            <option value="Asia/Kolkata">India</option>
+            <option value="America/New_York">USA</option>
+            <option value="Asia/Shanghai">China</option>
+            <option value="Europe/Moscow">Russia</option>
+            <option value="Europe/London">United Kingdom</option>
         </select>
         <label for="bg-image">Background Image URL:</label>
         <input type="file" id="bg-image" placeholder="Choose File">
+        <button class="btn-rm-bg" onclick="removeBgImage()">Remove Background Image</button>
         <label for="bg-color">Background Color:</label>
-        <input type="color" id="bg-color">
+        <input type="color" id="bg-color" value="#ffffff">
         <label for="text-color">Text Color:</label>
-        <input type="color" id="text-color">
+        <input type="color" id="text-color" value="#000000">
         <label for="font-size">Font Size:</label>
-        <input type="number" id="font-size" value="16">
+        <input type="number" id="font-size" value="48">
         <label for="font-type">Font Type:</label>
         <select id="font-type">
             <option value="Arial" style="font-family: Arial;">Arial</option>
@@ -46,7 +60,18 @@
             <option value="Georgia" style="font-family: Georgia;">Georgia</option>
             <option value="Courier New" style="font-family: 'Courier New';">Courier New</option>
             <option value="Lucida Console" style="font-family: 'Lucida Console';">Lucida Console</option>
+            <option value="Tahoma" style="font-family: Tahoma;">Tahoma</option>
+            <option value="Trebuchet MS" style="font-family: 'Trebuchet MS';">Trebuchet MS</option>
+            <option value="Comic Sans MS" style="font-family: 'Comic Sans MS';">Comic Sans MS</option>
+            <option value="Impact" style="font-family: Impact;">Impact</option>
+            <option value="Monaco" style="font-family: Monaco;">Monaco</option>
+            <option value="Optima" style="font-family: Optima;">Optima</option>
+            <option value="Palatino Linotype" style="font-family: 'Palatino Linotype';">Palatino Linotype</option>
+            <option value="Papyrus" style="font-family: Papyrus;">Papyrus</option>
+            <option value="Brush Script MT" style="font-family: 'Brush Script MT';">Brush Script MT</option>
+            <option value="Great Vibes" style="font-family: 'Great Vibes';">Great Vibes</option>
         </select>
+        
         <label for="show-seconds">Show Seconds:</label>
         <input type="checkbox" id="show-seconds" checked>
         <label for="hour-format">12 or 24 Hour Format:</label>

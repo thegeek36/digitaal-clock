@@ -62,10 +62,6 @@ function applySettings() {
             document.querySelector('.settings-icon i').style.color = 'white';
             document.querySelector('.music-icon i').classList.add('fa-music', 'fa');
             document.querySelector('.music-icon i').style.color = 'white';
-        } else {
-            document.querySelector('.nav-container h1').style.color = 'black';
-            document.querySelector('.settings-icon i').classList.remove('fa-cog', 'fa');
-            document.querySelector('.settings-icon i').style.color = 'black';
         }
     }
     if (textColor) {
@@ -101,34 +97,15 @@ function updateTime() {
     let hours = date.getHours();
     const minutes = date.getMinutes();
     const seconds = date.getSeconds();
-
-    if (currentHourFormat === 12) {
-        const ampm = hours >= 12 ? 'PM' : 'AM';
-        hours = hours % 12;
-        hours = hours ? hours : 12; // the hour '0' should be '12'
-    }
-
-    if (minutes !== lastMinutes) {
-        document.querySelector('.minute').classList.add('scroll-up');
-        setTimeout(() => document.querySelector('.minute').classList.remove('scroll-up'), 300);
-        lastMinutes = minutes;
-    }
-
-    if (hours !== lastHours) {
-        document.querySelector('.hour').classList.add('scroll-up');
-        setTimeout(() => document.querySelector('.hour').classList.remove('scroll-up'), 300);
-        lastHours = hours;
-    }
-
-    if(seconds !== lastSeconds){
-        document.querySelector('.seconds').classList.add('scroll-up');
-        setTimeout(() => document.querySelector('.seconds').classList.remove('scroll-up'), 300);
-        lastSeconds = seconds;
-    }
+    // console.log(hours >= 12);
+    // if (currentHourFormat === 12) {
+    //     const ampm = hours >= 12 ? 'PM' : 'AM';
+    //     hours = hours % 12;
+    //     hours = hours ? hours : 12; // the hour '0' should be '12'
+    // }
 
     const ampm = currentHourFormat === 12 ? (hours >= 12 ? 'PM' : 'AM') : '';
     const formattedHours = currentHourFormat === 12 ? (hours % 12 || 12) : hours;
-
     document.querySelector('.time').innerHTML = `
         <h2 class="hour">${formattedHours.toString().padStart(2, '0')}</h2>
         <h2 class="blink">:</h2>
